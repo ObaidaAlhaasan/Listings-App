@@ -1,3 +1,20 @@
-<p>
-  listings works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4" *ngIf="listings">
+      <div *ngFor="let item of listings ">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a [routerLink]="['/listing/'+item.key]"> {{item | json}} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

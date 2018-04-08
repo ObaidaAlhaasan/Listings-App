@@ -6,12 +6,15 @@ import { NoPageFoundComponent } from './components/no-page-found/no-page-found.c
 import { ListingsComponent } from './components/listings/listings.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'listing/:id', component: ListItemComponent },
+
   { path: 'register', component: RegisterComponent },
 
 

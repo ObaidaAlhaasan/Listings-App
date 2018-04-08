@@ -545,3 +545,26 @@ font-size: 25px;
   transition:  all ease-in-out .5s;
   color: aqua!important;
 }
+
+
+ .facebook button:hover{
+  transition:  all ease-in-out .5s;
+   
+  color: midnightblue !important;
+}
+.facebook button{
+  transition:  all ease-in-out .5s;
+  
+  color: #fff !important;
+}
+
+.googleP button:hover{
+  transition:  all ease-in-out .5s;
+  
+  color: crimson !important;
+}
+.googleP button{
+  transition:  all ease-in-out .5s;
+  
+  color: #fff !important;
+}

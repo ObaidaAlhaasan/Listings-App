@@ -1,5 +1,5 @@
 <!--start navbar -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top ">
   <a class="navbar-brand" href="#">SHadow616</a>
 
   <div class="container text-uppercase">
@@ -16,13 +16,13 @@
             <i class="fa fa-home   fa-fw "></i>
           </a>
         </li>
-        <li class="nav-item" routerLinkActive='active'>
+        <li *ngIf='(afAuth.authState | async)' class="nav-item" routerLinkActive='active'>
           <a class="nav-link" routerLink='listings'>Listings
             <i class="fa fa-list fa-fw"></i>
           </a>
         </li>
 
-        <li class="nav-item" routerLinkActive='active'>
+        <li *ngIf='(afAuth.authState | async)' class="nav-item" routerLinkActive='active'>
           <a class="nav-link" routerLink='addlist'>ADD-list
             <i class="fa fa-plus-square-o fa-fw" aria-hidden="true"></i>
           </a>
@@ -30,13 +30,29 @@
       </ul>
 
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item" routerLinkActive='active'>
+
+        <li *ngIf="afAuth.authState | async as user;" class='nav-item'>
+
+          <a class="nav-link">
+            <img *ngIf='user.photoURL !=null' class="rounded-circle d-inline" [src]="user.photoURL" alt="userImg"> {{user.email }}
+            <i *ngIf='!(user.photoURL)' class="fa fa-user-circle-o fa-lg text-light" aria-hidden="true"></i>
+          </a>
+        </li>
+
+        <li *ngIf="(afAuth.authState | async)" (click)="logout()" class="nav-item">
+          <a class="nav-link" href='#'>Logout
+            <i class="fa fa-sign-out  fa-fw"></i>
+          </a>
+        </li>
+
+
+        <li *ngIf="!(afAuth.authState | async)" class="nav-item" routerLinkActive='active'>
           <a class="nav-link" routerLink='login'>Login
             <i class="fa fa-sign-in   fa-fw"></i>
           </a>
         </li>
 
-        <li class="nav-item" routerLinkActive='active'>
+        <li *ngIf="!(afAuth.authState | async)" class="nav-item" routerLinkActive='active'>
           <a class="nav-link" routerLink='register'>signup
             <i class="fa fa-hand-o-left   fa-fw"></i>
           </a>

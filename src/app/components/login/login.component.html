@@ -1,31 +1,32 @@
 <div class="limiter">
-  <div class="container-login100" style="background-image: url('assets/img/2.jpg');">
+  <div class="container-login100" style="background-image: url('assets/img/3.jpg');">
     <div class="wrap-login100">
       <form (submit)="onSubmitForm()" #form="ngForm" class="login100-form validate-form">
         <span class="login100-form-logo">
-          <i class="fa fa-smile-o fa-lg fa-fw"></i>
+          <i class="fa fa-dedent fa-lg fa-fw"></i>
         </span>
 
-        <span class="login100-form-title p-b-34 p-t-27">
+        <span class="login100-form-title pt-4 pb-4">
           Log in
         </span>
-        <div class="wrap-input100 validate-input  mb-4" data-validate="Enter username">
-          <input required minlength="4" maxlength="25" class="input100" type="text" name="username" #name='ngModel' [(ngModel)]='user.name'
+        <div class="wrap-input100 validate-input   mb-4" data-validate="Enter username">
+          <input required minlength="4" maxlength="25" class="input100" type="text" name="username" email #name='ngModel' [(ngModel)]='user.email'
             placeholder="Username">
           <span class="focus-input100"></span>
-          <i [ngClass]="name.touched && name.invalid ?'wrong': name.valid && name.dirty?'success':'' " style="float: right;" class="fa fa-user-circle-o fa-fw text-light"
+          <i [ngClass]="name.touched && name.invalid ?'wrong': name.valid && name.dirty?'success':'' " style="float: right;" class="fa fa-envelope-open-o fa-fw text-light"
             aria-hidden="true"></i>
         </div>
         <p class="text-danger lead alert alert-danger badge-pill" *ngIf="name.touched && !name.valid">
           <strong *ngIf="!!name.errors.minlength && !name.errors.required && !name.errors.maxlength ">Min Length Is 4 Chars</strong>
-          <strong *ngIf="!!name.errors.required && !name.errors.maxlength && !name.errors.minlength ">Name Is Required</strong>
-
+          <strong *ngIf="!!name.errors.required && !name.errors.maxlength && !name.errors.minlength ">E-mail Is Required</strong>
+          <strong *ngIf='!name.errors.minlength && !name.errors.required'>
+            Invalid E-mail Address
+          </strong>
         </p>
-
         <br>
 
         <div class="wrap-input100 validate-input" data-validate="Enter password">
-          <input required minlength="8" maxlength="25" class="input100" type="password" #pass='ngModel' [(ngModel)]="user.password"
+          <input required minlength="6" maxlength="25" class="input100" type="password" #pass='ngModel' [(ngModel)]="user.password"
             name="password" placeholder="Password">
           <span class="focus-input100"></span>
           <i [ngClass]="pass.touched && pass.invalid ?'wrong': pass.valid && pass.dirty?'success':'' " style="float: right;" class="fa fa-eye fa-fw text-light"
@@ -33,11 +34,10 @@
 
         </div>
         <p class="text-danger lead alert alert-danger badge-pill" *ngIf="pass.touched && !pass.valid">
-          <strong *ngIf="!!pass.errors.minlength && !pass.errors.required && !pass.errors.maxlength ">Min Length Is 8 Chars</strong>
+          <strong *ngIf="!!pass.errors.minlength && !pass.errors.required && !pass.errors.maxlength ">Min Length Is 6 Chars</strong>
           <strong *ngIf="!!pass.errors.required && !pass.errors.maxlength && !pass.errors.minlength ">Password Is Required</strong>
 
         </p>
-
         <br>
         <br>
 
@@ -50,17 +50,19 @@
         <div class="text-center p-t-4 mt-5">
           <ul class="list-unstyled">
             <li style="font-size:24px; color:aqua" class="d-inline"> LogIn With : </li>
-            <li class="d-inline p-2 ">
-              <button>
-                <i class="fa text-light fa-google-plus-official fa-fw fa-2x" aria-hidden="true"></i>
+            <li class="d-inline p-2 googleP">
+              <button (click)="login()">
+                <i class="fa  fa-google-plus-official fa-fw fa-2x" aria-hidden="true"></i>
               </button>
             </li>
-            <li class="d-inline p-2 ">
+            <li class="d-inline p-2 facebook">
               <button>
-                <i class="fa fa-facebook-official fa-fw fa-2x text-light" aria-hidden="true"></i>
+                <i class="fa fa-facebook-official fa-fw fa-2x " aria-hidden="true"></i>
               </button>
             </li>
+
           </ul>
+
         </div>
       </form>
     </div>
@@ -68,4 +70,13 @@
 </div>
 
 
-<div id="dropDownSelect1"></div>
+<!-- <div *ngIf="afAuth.authState | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="logout()">Logout</button>
+</div> -->
+
+<!-- 
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button >Login with Google</button>
+</ng-template> -->
