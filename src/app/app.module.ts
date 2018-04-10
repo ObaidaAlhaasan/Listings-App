@@ -31,12 +31,7 @@ import { EditListComponent } from './components/edit-list/edit-list.component';
 
 
 const configFI = {
-  apiKey: 'AIzaSyA1DM-P8MNgJPPx1VUD6hTfQgB7uJ7jQaQ',
-  authDomain: 'listings-app-616.firebaseapp.com',
-  databaseURL: 'https://listings-app-616.firebaseio.com',
-  projectId: 'listings-app-616',
-  storageBucket: 'listings-app-616.appspot.com',
-  messagingSenderId: '468933459655'
+  // your Config from firebase
 };
 //
 @NgModule({
