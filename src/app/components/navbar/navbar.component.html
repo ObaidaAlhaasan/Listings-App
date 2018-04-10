@@ -23,7 +23,7 @@
         </li>
 
         <li *ngIf='(afAuth.authState | async)' class="nav-item" routerLinkActive='active'>
-          <a class="nav-link" routerLink='addlist'>ADD-list
+          <a class="nav-link" routerLink='add-list'>ADD-list
             <i class="fa fa-plus-square-o fa-fw" aria-hidden="true"></i>
           </a>
         </li>
@@ -40,7 +40,7 @@
         </li>
 
         <li *ngIf="(afAuth.authState | async)" (click)="logout()" class="nav-item">
-          <a class="nav-link" href='#'>Logout
+          <a class="nav-link" style="cursor: pointer;">Logout
             <i class="fa fa-sign-out  fa-fw"></i>
           </a>
         </li>

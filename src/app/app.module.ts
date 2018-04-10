@@ -21,6 +21,8 @@ import { ListingsComponent } from './components/listings/listings.component';
 import { UserService } from './services/user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
+import { AddListComponent } from './components/add-list/add-list.component';
+import { EditListComponent } from './components/edit-list/edit-list.component';
 
 
 
@@ -48,7 +50,9 @@ const configFI = {
     HomeComponent,
     ListingsComponent,
     RegisterComponent,
-    ListItemComponent
+    ListItemComponent,
+    AddListComponent,
+    EditListComponent
   ],
   imports: [
     AppRoutingModule,

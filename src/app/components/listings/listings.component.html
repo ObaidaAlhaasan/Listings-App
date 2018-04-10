@@ -1,14 +1,41 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4" *ngIf="listings">
+  <div class="row text-center">
+    <div class="col-sm-6" *ngIf="listings && listings.length != 0 ">
       <div *ngFor="let item of listings ">
+        <br>
+        <br>
         <ul class="list-group">
           <li class="list-group-item">
-            <a [routerLink]="['/listing/'+item.key]"> {{item | json}} </a>
+            <a class="btn btn-light" [routerLink]="['/listing/'+item.$key]">
+              <strong>{{item.title }}</strong>
+              <small>{{item.city}}</small>
+            </a>
           </li>
         </ul>
       </div>
     </div>
+
+    <div class="col-sm-12" *ngIf="listings && listings.length ==0 ">
+      <br>
+      <br>
+      <br>
+      <h1 class="page-header">
+
+        There is No lists
+
+      </h1>
+      <a routerLink="/add-list" class="btn btn-primary">ADD List </a>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="col-sm-12" *ngIf="!listings ">
+      <h1>
+        <i class="fa fa-spinner fa-4x fa-fw fa-spin text-primary"></i>
+      </h1>
+    </div>
+
   </div>
 </div>
 

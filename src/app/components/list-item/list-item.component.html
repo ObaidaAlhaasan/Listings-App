@@ -1,3 +1,83 @@
-<p>
-  list-item works!
-</p>
+<br>
+<br>
+<div class="container">
+  <div *ngIf='list' class="page-header text-center bg-light ">
+    <h2 class="p-3">{{list.title}}
+      <small>{{list.city}}</small>
+    </h2>
+  </div>
+  <div class="row" *ngIf='list'>
+
+    <div class="col-sm-4">
+      <a class="btn btn-light" routerLink="/listings">Go Back
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+      </a>
+      <br>
+      <br>
+      <span *ngIf='!imageUrl'>
+        <i class="fa fa-spinner fa-lg fa-fw  fa-spin"></i>
+      </span>
+      <img ng-if="imageUrl" style="width: 100%;" src="{{imageUrl}}" alt="House Image" class="img-thumbnail ">
+      <hr>
+      <a [routerLink]="['/edit-list/'+list.$key]" class='btn btn-info'>Edit</a>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#modelId">
+        Delete
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title text-center" id="modelTitleId">
+                <strong>
+                  <code> Delete List </code>
+                </strong>
+              </h4>
+            </div>
+            <div class="modal-body">
+              Are You Sure you want to Delete this List ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteList()" type="button" class="btn btn-primary">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8" *ngIf='list'>
+      <br>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <code>BedRooms</code>: {{list.bedrooms}}
+        </li>
+        <li class="list-group-item">
+          <code>type</code>: {{list.type}}
+        </li>
+        <li class="list-group-item">
+          <code>owner</code>: {{list.owner}}
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  </div>
+  <div *ngIf="!list" class="text-center">
+    <h1>
+      <i class="fa fa-spinner fa-4x fa-fw fa-spin text-primary"></i>
+    </h1>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

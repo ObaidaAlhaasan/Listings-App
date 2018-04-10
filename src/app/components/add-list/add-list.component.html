@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row bg-light">
+    <div class="col-sm-8" style="margin: 20px auto;">
+      <form #form="ngForm" (submit)="onSubmitAddList()">
+        <br>
+        <div class="form-group">
+          <label>title</label>
+          <input required type="text" class="form-control" name="title" [(ngModel)]="list.title">
+        </div>
+
+        <div class="form-group">
+          <label>city</label>
+          <input required type="text" class="form-control" name="city" [(ngModel)]="list.city">
+        </div>
+
+        <div class="form-group">
+          <label>owner</label>
+          <input required type="text" class="form-control" name="owner" [(ngModel)]="list.owner">
+        </div>
+
+        <div class="form-group">
+          <label>Bedrooms</label>
+          <input required type="text" class="form-control" name="bedrooms" [(ngModel)]="list.bedrooms">
+        </div>
+
+        <div class="form-group">
+          <label>Type</label>
+          <select required class="form-control" name="type" [(ngModel)]="list.type">
+            <option value="Estate">Estate</option>
+            <option value="Condo">Condo</option>
+            <option value="Apartment">Apartment</option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>ADD Image</label>
+          <input id="image" type="file" name="image" class="form-control" [(ngModel)]="list.image">
+        </div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <input required type="text" name="price" class="form-control" [(ngModel)]="list.price">
+        </div>
+        <br>
+        <div class="text-center">
+          <button [disabled]="form.invalid" type="submit" class="btn btn-info btn-lg">ADD List</button>
+        </div>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>
